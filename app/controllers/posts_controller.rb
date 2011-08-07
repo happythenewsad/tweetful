@@ -9,6 +9,10 @@ class PostsController < ApplicationController
       format.xml  { render :xml => @posts }
     end
   end
+  
+  def load_tweets
+    Resque.enqueue(TweetWorker)
+  end
 
   # GET /posts/1
   # GET /posts/1.xml
