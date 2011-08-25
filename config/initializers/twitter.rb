@@ -1,8 +1,11 @@
 require 'twitter'
+require 'yaml'
+
+auth = YAML.load(File.expand_path('../not_public/twitter_app.yml', __FILE__))
 
 Twitter.configure do |config|
-  config.consumer_key = 'RGSFig6eLUqo7oT67mrorg'
-  config.consumer_secret = 'HTIk0t2cpmY0T7Ur7h0VbAiJPFXAF4tdsm6qdRXcno'
-  config.oauth_token = '24617267-6IqmvDL4emNZkZQDbbB7J2Ac0jXLBHwosiwpdFMvw'
-  config.oauth_token_secret = 'hGcG3caW78SdxrjklBUuJcloua8WXn5IfFALE0moEY'
+  config.consumer_key = auth['consumer_key']
+  config.consumer_secret = auth['consumer_secret']
+  config.oauth_token = auth['oauth_token']
+  config.oauth_token_secret = auth['oauth_token_secret']
 end
