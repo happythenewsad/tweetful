@@ -1,25 +1,22 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Creator</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<h1>Tweets</h1>
+<br>
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.creator %></td>
-    <td><%= post.content %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+
+  <div class="post">
+	<div class="left-column">
+		<h2><%= post.creator %></h2>
+		<p><%= post.created_at %></p>
+	</div>
+	<div class="right-column">
+		<p><%= post.content %></p>
+		<br>
+		<%= link_to 'Show', post %>
+	    <%= link_to 'Edit', edit_post_path(post) %>
+	    <%= link_to 'Destroy', post, :method => :delete %>
+	</div>
+  </div>
+  <br>
+  <br>
 <% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Post', new_post_path %>

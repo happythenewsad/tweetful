@@ -1,0 +1,14 @@
+.post{
+	padding: 20px;
+	background-color: #BDC3FF;
+	width: 300px;
+	height: 200px;
+}
+
+.post .right-column {
+
+}
+
+.post .left-column {
+	background-color:#FFFFFF;
+}
