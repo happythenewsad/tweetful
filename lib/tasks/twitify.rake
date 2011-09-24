@@ -25,18 +25,17 @@ namespace :twitify do
   #syntax: timeline:startstream[happythenewsad]
   desc "opens a stream connection with twitter"
   task :startstream, [:username] => :environment do |t, args|
-    puts "about to enqueue..."
+    puts "starting TweetLoader"
     TweetLoader.perform(args[:username])
-    #`#{Shellwords.escape "QUEUE=tweet_stream rake resque:work"}`
-    #Resque.enqueue(TweetLoader, args[:username])
   end #load
   
   desc "closes a stream connection with twitter"
   task :stopstream, [:username] => :environment do |t, args|
-    puts "about to dequeue..."
+    raise 'deprecated for now'
     #Resque::Job.destroy(:tweet_stream, 'TweetLoader', args[:username])
     #Resque.remove_queue(:tweet_stream)
   end #load
 
   
 end #timeline
+
