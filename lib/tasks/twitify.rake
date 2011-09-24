@@ -8,9 +8,8 @@ task "resque:setup" => :environment
 
 namespace :twitify do
   desc "loads all of a user's previous tweets into the DB"
-  task :load => :environment do
-
-    tweets = Twitter.user_timeline("happythenewsad", :count => 199)
+  task :load, [:username] => :environment do |t, args|
+    tweets = Twitter.user_timeline(args[:username], :count => 199)
     tweets.each do |status|
       Post.create! do |post|
         post.creator = status.user.screen_name
