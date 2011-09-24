@@ -2,9 +2,6 @@ Twitify
 =======
 
 
-objective: interact with the Twitter streaming & rest api's in interesting ways with Rails
---
-
 getting started:
 ==
 
